@@ -1,0 +1,37 @@
+name:                waveletto
+version:             0.1.0.0
+synopsis:            Wavelet Matrix datastructure for fast Rank/Access/Select queries
+#description:
+homepage:            https://github.com/jahaynes/waveletto#readme
+license:             LGPL-3
+author:              John Haynes
+#maintainer:
+#copyright:          
+category:            Data
+extra-source-files:
+  - README.md
+
+dependencies:
+  - base >= 4.7 && < 5
+
+library:
+  source-dirs:
+    - src
+  dependencies:
+    - directory
+    - vector
+    - vector-algorithms
+    - vector-mmap
+  ghc-options: -Wall -O3 -msse4.2
+
+executables:
+  waveletto:
+    source-dirs:
+      - app
+    main: Main.hs
+    dependencies:
+      - waveletto
+      - vector
+    ghc-options: -Wall -O3 -msse4.2
+
+github: jahaynes/waveletto
